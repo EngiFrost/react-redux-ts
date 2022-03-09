@@ -4,8 +4,11 @@ import { Todo } from '../../models/Todo';
 import Flex from '../layout/Flex';
 import Text from '../layout/Text';
 import TodoCard from '../TodoCard';
+import todoBoardStyles from './styles';
 
 const TodoBoard: React.FC = (props) => {
+  const styles = todoBoardStyles;
+
   const [todos, setTodos] = useState<Todo[]>([]);
   const [value, setValue] = useState('');
 
@@ -21,8 +24,8 @@ const TodoBoard: React.FC = (props) => {
   };
 
   return (
-    <Flex styles={{ justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-      <Flex column styles={{ width: '30%', height: '30%', marginTop: '20%' }}>
+    <Flex styles={styles.rootContainer}>
+      <Flex column styles={styles.contentContainer}>
         <Flex wrap>
           {todos ? (
             todos.map((todo: Todo) => {
