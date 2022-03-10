@@ -1,10 +1,8 @@
 import React from 'react';
-import TodoBoard from './components/TodoBoard';
+import TodoView from './components/views/TodoView';
 
 function App() {
-  return (
-    <TodoBoard />
-  );
+  return <TodoView />;
 }
 
 export default App;

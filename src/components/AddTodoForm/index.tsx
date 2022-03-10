@@ -5,10 +5,11 @@ import { Todo } from '../../models/Todo';
 
 interface IAddTodoFormProps {
   addTodo: (todo: Todo) => void;
+  styles?: React.CSSProperties;
 }
 
 const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
-  const { addTodo } = props;
+  const { addTodo, styles } = props;
 
   const [value, setValue] = useState<string>('');
 
@@ -22,7 +23,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
   };
 
   return (
-    <Flex column>
+    <Flex column fill styles={styles}>
       <TextField label='Todo content' multiline maxRows={4} value={value} onChange={handleInput} />
       <Button variant='outlined' onClick={() => addTodoHandler(value)}>
         Add

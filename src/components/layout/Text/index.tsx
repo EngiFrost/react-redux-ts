@@ -1,18 +1,25 @@
 import React from 'react';
 
 interface ITextProps {
-  content: string
-  size?: string
+  align?: 'left' | 'center' | 'right';
+  content: string;
+  fluid?: boolean;
+  size?: string;
+  styles?: React.CSSProperties;
 }
 
 const Text: React.FC<ITextProps> = (props) => {
-  const {content, size} = props
+  const { align = 'left', content, fluid = false, size, styles } = props;
 
   const style: React.CSSProperties = {
-    fontSize: size
-  }
+    fontSize: size,
+    textAlign: align,
+    width: fluid ? '100%' : 'fit-content',
+    whiteSpace: 'initial',
+    ...styles,
+  };
 
-  return <p style={style}>{content}</p>
-}
+  return <p style={style}>{content}</p>;
+};
 
 export default Text
