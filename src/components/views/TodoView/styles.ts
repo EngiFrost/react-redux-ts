@@ -1,4 +1,4 @@
-const todoBoardStyles: { [styleName: string]: React.CSSProperties } = {
+const todoViewStyles: { [styleName: string]: React.CSSProperties } = {
   rootContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -12,4 +12,4 @@ const todoBoardStyles: { [styleName: string]: React.CSSProperties } = {
   }
 }
 
-export default todoBoardStyles;
+export default todoViewStyles;
