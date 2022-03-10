@@ -22,7 +22,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
   };
 
   return (
-    <Flex column>
+    <Flex column fill>
       <TextField label='Todo content' multiline maxRows={4} value={value} onChange={handleInput} />
       <Button variant='outlined' onClick={() => addTodoHandler(value)}>
         Add
