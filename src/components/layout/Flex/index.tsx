@@ -1,20 +1,30 @@
 import React from 'react';
 
+export enum GapTypes {
+  NONE = 0,
+  SMALLEST = 1,
+  SMALL = 2,
+  MEDIUM = 3,
+  LARGE = 4,
+  HUGE = 5,
+}
 interface IFlexProps {
   children: React.ReactNode;
   column?: boolean;
+  gap?: GapTypes;
   styles?: React.CSSProperties;
   wrap?: boolean;
 }
 
 const Flex: React.FC<IFlexProps> = (props) => {
-  const { children, column = false, styles = {}, wrap = false } = props;
+  const { children, column = false, gap = GapTypes.NONE, styles = {}, wrap = false } = props;
 
   const style: React.CSSProperties = {
     ...styles,
     display: 'flex',
     flexDirection: column ? 'column' : 'row',
     flexWrap: wrap ? 'wrap' : 'nowrap',
+    gap: `${Math.pow(4, gap)}px`,
   };
 
   return <div style={style}>{children}</div>;

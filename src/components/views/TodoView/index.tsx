@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Todo } from '../../../models/Todo';
 import AddTodoForm from '../../AddTodoForm';
-import Flex from '../../layout/Flex';
+import Flex, { GapTypes } from '../../layout/Flex';
 import TodoBoard from '../../TodoBoard';
 import todoViewStyles from './styles';
 
@@ -18,7 +18,7 @@ const TodoView: React.FC = (props) => {
 
   return (
     <Flex styles={styles.rootContainer}>
-      <Flex column styles={styles.contentContainer}>
+      <Flex column gap={GapTypes.MEDIUM} styles={styles.contentContainer}>
         <TodoBoard todos={todos} />
         <AddTodoForm addTodo={addTodo} />
       </Flex>
