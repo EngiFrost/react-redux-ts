@@ -6,8 +6,8 @@ const todoViewStyles: { [styleName: string]: React.CSSProperties } = {
     height: '100%'
   },
   contentContainer: {
-    width: '30%',
-    height: '30%',
+    width: '50%',
+    height: '50%',
     marginTop: '20%'
   }
 }
