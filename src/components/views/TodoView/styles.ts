@@ -1,7 +1,5 @@
 const todoViewStyles: { [styleName: string]: React.CSSProperties } = {
   rootContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
     width: '100%',
     height: '100%'
   },
@@ -9,6 +7,9 @@ const todoViewStyles: { [styleName: string]: React.CSSProperties } = {
     width: '50%',
     height: '50%',
     marginTop: '20%'
+  },
+  form: {
+    width: '50%',
   }
 }
 

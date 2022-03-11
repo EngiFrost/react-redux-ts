@@ -17,10 +17,10 @@ const TodoView: React.FC = (props) => {
   };
 
   return (
-    <Flex styles={styles.rootContainer}>
-      <Flex column gap='gap.medium' styles={styles.contentContainer}>
+    <Flex fill hAlign='center' vAlign='center' styles={styles.rootContainer}>
+      <Flex fill column gap='gap.medium' hAlign='center' styles={styles.contentContainer}>
         <TodoBoard todos={todos} />
-        <AddTodoForm addTodo={addTodo} />
+        <AddTodoForm addTodo={addTodo} styles={styles.form} />
       </Flex>
     </Flex>
   );
