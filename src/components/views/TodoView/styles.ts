@@ -10,7 +10,7 @@ const todoViewStyles: { [styleName: string]: React.CSSProperties } = {
   },
   form: {
     width: '50%',
-  }
+  },
 }
 
 export default todoViewStyles;

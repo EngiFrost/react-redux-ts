@@ -12,7 +12,7 @@ const TodoBoard: React.FC<ITodoBoardProps> = (props) => {
   const { todos } = props;
 
   return (
-    <Flex fill gap='gap.medium' wrap>
+    <Flex fill gap='gap.medium' hAlign='center' wrap>
       {todos.length ? (
         todos.map((todo: Todo) => {
           return <TodoCard content={todo.content} />;
