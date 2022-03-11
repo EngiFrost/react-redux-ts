@@ -1,6 +1,6 @@
 import React from 'react';
 
-export enum GapTypes {
+enum GapTypes {
   'gap.none' = 0,
   'gap.smallest' = 1,
   'gap.small' = 2,
@@ -8,6 +8,8 @@ export enum GapTypes {
   'gap.large' = 4,
   'gap.huge' = 5,
 }
+
+type alignmentType = 'start' | 'center' | 'end' | 'normal';
 interface IFlexProps {
   children: React.ReactNode;
   column?: boolean;
@@ -15,10 +17,12 @@ interface IFlexProps {
   gap?: keyof typeof GapTypes;
   styles?: React.CSSProperties;
   wrap?: boolean;
+  hAlign?: alignmentType;
+  vAlign?: alignmentType;
 }
 
 const Flex: React.FC<IFlexProps> = (props) => {
-  const { children, column = false, fill = false, gap = 'gap.none', styles, wrap = false } = props;
+  const { children, column, fill, gap = 'gap.none', styles, wrap, vAlign, hAlign } = props;
 
   const style: React.CSSProperties = {
     display: 'flex',
@@ -27,6 +31,8 @@ const Flex: React.FC<IFlexProps> = (props) => {
     gap: `${+GapTypes[gap] * 8}px`,
     height: fill ? '100%' : 'fit-content',
     width: fill ? '100%' : 'fit-content',
+    alignItems: column ? hAlign : hAlign,
+    justifyContent: column ? vAlign : hAlign,
     ...styles,
   };
 
