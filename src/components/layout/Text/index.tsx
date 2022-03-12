@@ -15,6 +15,7 @@ const Text: React.FC<ITextProps> = (props) => {
     fontSize: size,
     textAlign: align,
     width: fluid ? '100%' : 'fit-content',
+    whiteSpace: 'initial',
     ...styles,
   };
 
