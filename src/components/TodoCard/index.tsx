@@ -12,7 +12,7 @@ const TodoCard: React.FC<ITodoProps> = (props) => {
   const { content } = props;
 
   return (
-    <Card style={styles.card}>
+    <Card variant='outlined' style={styles.card}>
       <Text align='center' content={content} fluid styles={styles.cardContent} />
     </Card>
   );
