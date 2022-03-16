@@ -15,7 +15,7 @@ const TodoBoard: React.FC<ITodoBoardProps> = (props) => {
     <Flex fill gap='gap.medium' hAlign='center' wrap>
       {todos.length ? (
         todos.map((todo: Todo) => {
-          return <TodoCard todo={todo} key={Date.now()} />;
+          return <TodoCard todo={todo} key={`${Date.now}`} />;
         })
       ) : (
         <Text content={'There are no todos yet!'} size={'20px'} />
