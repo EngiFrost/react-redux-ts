@@ -5,11 +5,14 @@ const todoCardStyles = {
     maxWidth: '40%',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cardContentWrapper: {
+    padding: '0 16px',
   },
   cardContent: {
     lineHeight: '18px',
     fontSize: '18px',
-    padding: '0 16px',
   },
 };
 
