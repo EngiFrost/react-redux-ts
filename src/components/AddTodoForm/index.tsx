@@ -11,21 +11,28 @@ interface IAddTodoFormProps {
 const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
   const { addTodo, styles } = props;
 
-  const [value, setValue] = useState<string>('');
+  const [titleValue, setTitleValue] = useState<string>('');
+  const [contentValue, setContentValue] = useState<string>('');
 
-  const handleInput = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setValue(event.target.value);
+  const handleTitleInput = (event: { target: { value: React.SetStateAction<string> } }) => {
+    setTitleValue(event.target.value);
   };
 
-  const addTodoHandler = (content: string) => {
-    addTodo({ content });
-    setValue('');
+  const handleContentInput = (event: { target: { value: React.SetStateAction<string> } }) => {
+    setContentValue(event.target.value);
+  };
+
+  const addTodoHandler = (title: string, content: string) => {
+    addTodo({ title, content });
+    setTitleValue('');
+    setContentValue('');
   };
 
   return (
     <Flex column fill styles={styles}>
-      <TextField label='Todo content' multiline maxRows={4} value={value} onChange={handleInput} />
-      <Button variant='outlined' onClick={() => addTodoHandler(value)}>
+      <TextField label='Todo title' value={titleValue} onChange={handleTitleInput} />
+      <TextField label='Todo content' multiline maxRows={4} value={contentValue} onChange={handleContentInput} />
+      <Button variant='outlined' onClick={() => addTodoHandler(titleValue, contentValue)}>
         Add
       </Button>
     </Flex>
