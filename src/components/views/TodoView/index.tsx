@@ -10,7 +10,12 @@ const TodoView: React.FC = (props) => {
 
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const addTodo = (todo: Todo) => {
+  const addTodo = (todo: Todo): void => {
+    if (Object.values(todo).filter((item) => item).length !== Object.values(todo).length) {
+      window.alert('All fields are required!!!');
+      return;
+    }
+
     const newTodoArray: Todo[] = [...todos];
     newTodoArray.push(todo);
     setTodos(newTodoArray);

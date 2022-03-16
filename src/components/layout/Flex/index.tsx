@@ -31,7 +31,7 @@ const Flex: React.FC<IFlexProps> = (props) => {
     gap: `${+GapTypes[gap] * 8}px`,
     height: fill ? '100%' : 'fit-content',
     width: fill ? '100%' : 'fit-content',
-    alignItems: column ? hAlign : hAlign,
+    alignItems: column ? hAlign : vAlign,
     justifyContent: column ? vAlign : hAlign,
     ...styles,
   };
