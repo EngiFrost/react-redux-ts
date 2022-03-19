@@ -1,18 +1,5 @@
 import { Todo } from "../../models/Todo"
-
-enum TodoActionTypes {
-  ADD_TODO = 'ADD_TODO',
-  REMOVE_TODO = 'REMOVE_TODO',
-}
-
-interface TodoAction {
-  type: TodoActionTypes
-  payload?: any
-}
-
-interface TodoState {
-  todos: Todo[]
-}
+import { TodoAction, TodoActionTypes, TodoState } from "../../types/todoTypes"
 
 const initialState: TodoState = {
   todos: []
