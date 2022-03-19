@@ -1,15 +1,12 @@
 import React from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../models/Todo';
 import Flex from '../layout/Flex';
 import Text from '../layout/Text';
 import TodoCard from '../TodoCard';
 
-interface ITodoBoardProps {
-  todos: Todo[];
-}
-
-const TodoBoard: React.FC<ITodoBoardProps> = (props) => {
-  const { todos } = props;
+const TodoBoard: React.FC = (props) => {
+  const { todos } = useTypedSelector((state) => state.todo);
 
   return (
     <Flex fill gap='gap.medium' hAlign='center' wrap>

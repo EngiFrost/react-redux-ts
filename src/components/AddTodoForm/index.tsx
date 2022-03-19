@@ -1,18 +1,37 @@
 import { Button, TextField } from '@mui/material';
 import Flex from '../layout/Flex';
 import React, { useState } from 'react';
-import { Todo } from '../../models/Todo';
 import { v4 as uuidv4 } from 'uuid';
 import addTodoFormStyles from './styles';
+import { useDispatch } from 'react-redux';
+import { TodoActionTypes } from '../../types/todoTypes';
 
 interface IAddTodoFormProps {
-  addTodo: (todo: Todo) => void;
   styles?: React.CSSProperties;
 }
 
 const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
-  const { addTodo } = props;
   const styles = { ...addTodoFormStyles, root: props.styles };
+  const dispatch = useDispatch();
+
+  const addTodoHandler = (title: string, content: string): void => {
+    if (title === '' || content === '') {
+      window.alert('All fields are required!!!');
+      return;
+    }
+
+    dispatch({
+      type: TodoActionTypes.ADD_TODO,
+      payload: {
+        id: uuidv4(),
+        title,
+        content,
+      },
+    });
+
+    setTitleValue('');
+    setContentValue('');
+  };
 
   const [titleValue, setTitleValue] = useState<string>('');
   const [contentValue, setContentValue] = useState<string>('');
@@ -23,12 +42,6 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
 
   const handleContentInput = (event: { target: { value: React.SetStateAction<string> } }) => {
     setContentValue(event.target.value);
-  };
-
-  const addTodoHandler = (title: string, content: string) => {
-    addTodo({ id: uuidv4(), title, content });
-    setTitleValue('');
-    setContentValue('');
   };
 
   return (
