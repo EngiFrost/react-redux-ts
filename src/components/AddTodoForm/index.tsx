@@ -2,6 +2,7 @@ import { Button, TextField } from '@mui/material';
 import Flex from '../layout/Flex';
 import React, { useState } from 'react';
 import { Todo } from '../../models/Todo';
+import { v4 as uuidv4 } from 'uuid';
 import addTodoFormStyles from './styles';
 
 interface IAddTodoFormProps {
@@ -25,7 +26,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
   };
 
   const addTodoHandler = (title: string, content: string) => {
-    addTodo({ title, content });
+    addTodo({ id: uuidv4(), title, content });
     setTitleValue('');
     setContentValue('');
   };
