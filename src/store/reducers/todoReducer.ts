@@ -11,7 +11,7 @@ export const todoReducer = (state: TodoState = initialState, action: TodoAction)
       state.todos.push(action.payload as Todo)
       return { ...state, todos: state.todos }
     case TodoActionTypes.REMOVE_TODO:
-      return { ...state, todos: state.todos.filter((todo) => todo.id === action.payload) }
+      return { ...state, todos: state.todos.filter((todo) => todo.id !== action.payload) }
     default:
       return state
   }
