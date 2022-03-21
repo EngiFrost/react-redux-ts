@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Todo } from '../../models/Todo';
 import { useDispatch } from 'react-redux';
-import { TodoActionTypes } from '../../types/todoTypes';
+import { removeTodoAction } from '../../store/action-creators/todoActions';
 
 interface ITodoDetailsDialogProps {
   todo: Todo;
@@ -20,10 +20,7 @@ const TodoDetailsDialog: React.FC<ITodoDetailsDialogProps> = (props) => {
   const dispatch = useDispatch();
 
   const removeTodoHandler = () => {
-    dispatch({
-      type: TodoActionTypes.REMOVE_TODO,
-      payload: todo.id,
-    });
+    dispatch(removeTodoAction(todo.id));
 
     handleClose();
   };
