@@ -14,3 +14,10 @@ export interface TodoAction {
 export interface TodoState {
   todos: Todo[]
 }
+
+export interface fetchedTodos {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
