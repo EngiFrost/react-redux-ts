@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import addTodoFormStyles from './styles';
 import { useDispatch } from 'react-redux';
-import { TodoActionTypes } from '../../types/todoTypes';
+import { addTodoAction } from '../../store/action-creators/todoActions';
 
 interface IAddTodoFormProps {
   styles?: React.CSSProperties;
@@ -20,14 +20,7 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
       return;
     }
 
-    dispatch({
-      type: TodoActionTypes.ADD_TODO,
-      payload: {
-        id: uuidv4(),
-        title,
-        content,
-      },
-    });
+    dispatch(addTodoAction({ id: uuidv4(), title, content }));
 
     setTitleValue('');
     setContentValue('');
