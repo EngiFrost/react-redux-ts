@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import addTodoFormStyles from './styles';
 import { useDispatch } from 'react-redux';
 import { addTodoAction } from '../../store/action-creators/todoActions';
+import { fetchTodos } from '../../asyncActions/todo';
 
 interface IAddTodoFormProps {
   styles?: React.CSSProperties;
@@ -26,6 +27,10 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
     setContentValue('');
   };
 
+  const fetchTodosHandler = (): void => {
+    dispatch(fetchTodos(4));
+  };
+
   const [titleValue, setTitleValue] = useState<string>('');
   const [contentValue, setContentValue] = useState<string>('');
 
@@ -43,6 +48,10 @@ const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
       <TextField style={styles.input} label='Todo content' multiline maxRows={4} value={contentValue} onChange={handleContentInput} />
       <Button variant='outlined' onClick={() => addTodoHandler(titleValue, contentValue)}>
         Add
+      </Button>
+      <div style={styles.buttonDivider}></div>
+      <Button variant='outlined' onClick={() => fetchTodosHandler()}>
+        Fetch todos
       </Button>
     </Flex>
   );

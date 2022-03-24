@@ -14,3 +14,10 @@ export const removeTodoAction = (payload: string) => {
     payload
   }
 }
+
+export const fetchTodosAction = (payload: Todo[]) => {
+  return {
+    type: TodoActionTypes.FETCH_TODOS,
+    payload
+  }
+}
