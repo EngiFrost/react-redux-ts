@@ -7,7 +7,6 @@ interface ITextProps {
   content: string;
   fluid?: boolean;
   fontWeight?: fontWeightType;
-  margin?: string;
   size?: string;
   styles?: React.CSSProperties;
 }
@@ -25,7 +24,7 @@ const Text: React.FC<ITextProps> = (props) => {
     ...styles,
   };
 
-  return <p style={style}>{content}</p>;
+  return <div style={style}>{content}</div>;
 };
 
 export default Text
