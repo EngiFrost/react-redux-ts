@@ -4,7 +4,6 @@
     {
       "name": "Chrome",
       "type": "chrome",
-      "timeout": 3000,
       "request": "launch",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceRoot}/src",

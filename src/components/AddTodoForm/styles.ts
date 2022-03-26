@@ -1,4 +1,10 @@
 const addTodoFormStyles = {
+  root: {
+    width: '50%',
+    minWidth: '200px',
+    maxWidth: '420px',
+    marginBottom: '40px'
+  },
   input: {
     marginBottom: '10px'
   },

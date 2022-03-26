@@ -7,12 +7,8 @@ import { useDispatch } from 'react-redux';
 import { addTodoAction } from '../../store/action-creators/todoActions';
 import { fetchTodos } from '../../asyncActions/todo';
 
-interface IAddTodoFormProps {
-  styles?: React.CSSProperties;
-}
-
-const AddTodoForm: React.FC<IAddTodoFormProps> = (props) => {
-  const styles = { ...addTodoFormStyles, root: props.styles };
+const AddTodoForm: React.FC = (props) => {
+  const styles = addTodoFormStyles;
   const dispatch = useDispatch();
 
   const addTodoHandler = (title: string, content: string): void => {

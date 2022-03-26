@@ -9,7 +9,7 @@ const TodoBoard: React.FC = (props) => {
   const { todos } = useTypedSelector((state) => state.todo);
 
   return (
-    <Flex fill gap='gap.medium' hAlign='center' wrap>
+    <Flex fill gap='gap.medium' hAlign='center' vAlign='center' wrap>
       {todos.length ? (
         todos.map((todo: Todo) => {
           return <TodoCard todo={todo} key={todo.id} />;
