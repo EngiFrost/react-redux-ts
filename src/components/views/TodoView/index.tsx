@@ -8,11 +8,9 @@ const TodoView: React.FC = (props) => {
   const styles = todoViewStyles;
 
   return (
-    <Flex fill hAlign='center' vAlign='center' styles={styles.rootContainer}>
-      <Flex fill column gap='gap.medium' hAlign='center' styles={styles.contentContainer}>
-        <TodoBoard />
-        <AddTodoForm />
-      </Flex>
+    <Flex fill column gap='gap.medium' hAlign='center' styles={styles.contentContainer}>
+      <TodoBoard />
+      <AddTodoForm />
     </Flex>
   );
 };
