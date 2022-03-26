@@ -11,7 +11,7 @@ const TodoView: React.FC = (props) => {
     <Flex fill hAlign='center' vAlign='center' styles={styles.rootContainer}>
       <Flex fill column gap='gap.medium' hAlign='center' styles={styles.contentContainer}>
         <TodoBoard />
-        <AddTodoForm styles={styles.form} />
+        <AddTodoForm />
       </Flex>
     </Flex>
   );
