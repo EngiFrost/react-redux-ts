@@ -7,6 +7,7 @@ interface ITextProps {
   content: string;
   fluid?: boolean;
   fontWeight?: fontWeightType;
+  margin?: string;
   size?: string;
   styles?: React.CSSProperties;
 }
@@ -17,6 +18,7 @@ const Text: React.FC<ITextProps> = (props) => {
   const style: React.CSSProperties = {
     fontSize: size,
     fontWeight: fontWeight,
+    margin: '15px 0',
     textAlign: align,
     width: fluid ? '100%' : 'fit-content',
     whiteSpace: 'initial',
